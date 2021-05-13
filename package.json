@@ -1,8 +1,12 @@
 {
   "name": "graphql-tag-transform.macro",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "transform and rename graphql tag operations",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist --ignore \"src/**/*.test.js,src/__fixtures__/**/*\"",
