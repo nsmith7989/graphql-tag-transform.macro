@@ -27,7 +27,7 @@ function changeQueryName(query, newName) {
 function compile(babel, path, config) {
   const t = babel.types;
   function newLine() {
-    return t.templateElement({ raw: "\n" }, true);
+    return t.templateElement({ raw: "", cooked: "" }, true);
   }
   const sources = path.node.quasi.quasis.map((node) => node.value.raw);
   const expressions = path.get("quasi").get("expressions");
@@ -58,7 +58,7 @@ function compile(babel, path, config) {
       newLine()
     );
 
-    const printedAst = "\n" + print(gqlAst);
+    const printedAst = print(gqlAst);
     const updatedTemplateLiteral = t.templateLiteral(
       [t.templateElement({ raw: printedAst, cooked: printedAst }), ...newLines],
       expressions.map((e) => t.identifier(e.node.name))
