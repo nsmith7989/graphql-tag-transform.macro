@@ -1,16 +1,16 @@
-declare module "graphql-tag-transform.macro" {
-  export interface GqlQueryDocument {
+
+declare module "graphql-tag-transform.macro" {   
+
+  export type GqlQueryDocument = {
     operationString: string;
     operationName: string;
     originalOpName: string;
-  }
+  } 
 
-  export default function gql(
+  export function gql(
     literals: any,
     ...placeholders: any[]
-  ): {
-    operationString: string;
-    operationName: string;
-    originalOpName: string;
-  };
+  ): GqlQueryDocument
+
+  export default gql
 }
